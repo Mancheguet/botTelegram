@@ -1,4 +1,4 @@
-package org.example;
+package org.mancheguet;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -62,14 +62,29 @@ public class MiBot extends TelegramLongPollingBot {
                 String responseText;
 
                 switch (messageText) {
-                    case "/start":
-                        responseText = "¡Hola! Eres un usuario autorizado.";
-                        break;
-                    case "/backup":
-                        responseText = "Iniciando la copia de seguridad...";
-                        break;
                     case "/help":
-                        responseText = "/start - Inicia el bot\n/backup - Inicia una copia de seguridad";
+                        responseText = "Estos son los comandos disponibles :\n" +
+                                "/bPatrones : Ejecutar copia de seguridad de patrones.\n" +
+                                "/bDUsers : Ejecuta copia de seguiridad Diaria de Users.\n" +
+                                "/bSUsers : Ejecuta copia de seguridad Semanal de Users.\n" +
+                                "/bEUsers : Ejecutar copia de seguridad Externa de Users.\n" +
+                                "/Ureporte : Mostrar el último reporte de las copias de seguridad\n" +
+                                "Que comando quieres usar?";
+                        break;
+                    case "/bPatrones":
+                        responseText = "Ejecutando copia de seguridad de Patrones...";
+                        break;
+                    case "/bDUsers":
+                        responseText = "Ejecutando copia de seguridad Diaria de Users...";
+                        break;
+                    case "/bSUsers":
+                        responseText = "Ejecutando copia de seguridad Semanal de Users";
+                        break;
+                    case "/bEUsers":
+                        responseText = "Ejecutando copia de seguridad Externa de Users";
+                        break;
+                    case "/Ureporte":
+                        responseText = "Aquí tienes el último reporte:\n";
                         break;
                     default:
                         responseText = "Comando no reconocido.";
